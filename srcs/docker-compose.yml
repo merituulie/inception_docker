@@ -5,6 +5,8 @@ services:
       context: ./requirements/nginx
     image: nginx:meskelin
     container_name: nginx
+    env_file:
+      ../.env
     ports:
       - "443:443"
     networks:
@@ -14,11 +16,8 @@ services:
       context: ./requirements/mariadb
     image: mariadb:meskelin
     container_name: mariadb
-    environment:
-      - MARIADB_ROOT_PASSWORD=password
-      - DB_USER=meskelin
-      - DB_USER_PASSWORD=password
-      - DB_NAME=inception
+    env_file:
+      ../.env
     networks:
       - inception_network
     volumes:
