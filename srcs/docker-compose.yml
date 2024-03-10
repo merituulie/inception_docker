@@ -1,0 +1,38 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: ./requirements/nginx
+    image: nginx:meskelin
+    container_name: nginx
+    ports:
+      - "443:443"
+    networks:
+      - inception_network
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+    image: mariadb:meskelin
+    container_name: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+      - DB_USER=meskelin
+      - DB_USER_PASSWORD=password
+      - DB_NAME=inception
+    networks:
+      - inception_network
+    volumes:
+      - maria-db:/var/lib/mysql
+
+volumes:
+  maria-db:
+    name: maria-db
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/meskelin/data/maria-db
+      o: bind
+
+networks:
+  inception_network:
+    name: inception_network
