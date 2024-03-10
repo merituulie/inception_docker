@@ -1,5 +1,6 @@
 YML_PATH = srcs/docker-compose.yml
 FILES_PATH = /home/meskelin/data
+DOMAIN_NAME = meskelin.42.fr
 
 .PHONY: up down ps clean fclean prune re all reset info
 
@@ -7,9 +8,12 @@ all:
 	@if [ ! -d "$(FILES_PATH)/maria-db" ]; then \
 		mkdir -p $(FILES_PATH)/maria-db; \
 	fi
-	# @if [ ! -d "/home/meskelin/data/html" ]; then \
-	#	mkdir -p /home/meskelin/data/html; \
-	#fi
+	@if [ ! -d "$(FILES_PATH)/wordpress-data" ]; then \
+		mkdir -p $(FILES_PATH)/wordpress-data; \
+	fi
+	@if ! grep -q "$(DOMAIN_NAME)" /etc/hosts ; then \
+		echo "127.0.0.1 $(DOMAIN_NAME)" | sudo tee -a /etc/hosts; \
+	fi
 	sudo docker compose -f $(YML_PATH) up -d
 
 up:
@@ -25,9 +29,11 @@ clean:
 	sudo docker compose -f srcs/docker-compose.yml down --rmi all -v
 
 fclean: clean
+	sudo sed -i '/meskelin\.42\.fr/d' /etc/hosts
 	@if [ -d $(FILES_PATH) ]; then \
 		sudo rm -rf $(FILES_PATH); \
 	fi;
+	sudo docker system prune
 
 prune:
 	sudo docker system prune --all --force --volumes

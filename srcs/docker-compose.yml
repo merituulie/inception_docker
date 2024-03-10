@@ -9,8 +9,14 @@ services:
       ../.env
     ports:
       - "443:443"
+    restart: always
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress-data:/var/www/html
     networks:
       - inception_network
+
   mariadb:
     build:
       context: ./requirements/mariadb
@@ -18,10 +24,26 @@ services:
     container_name: mariadb
     env_file:
       ../.env
+    restart: always
     networks:
       - inception_network
     volumes:
       - maria-db:/var/lib/mysql
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+    image: wordpress:meskelin
+    container_name: wordpress
+    env_file:
+      ../.env
+    restart: always
+    networks:
+      - inception_network
+    volumes:
+      - wordpress-data:/var/www/html
+    depends_on:
+      - mariadb
 
 volumes:
   maria-db:
@@ -30,6 +52,13 @@ volumes:
     driver_opts:
       type: none
       device: /home/meskelin/data/maria-db
+      o: bind
+  wordpress-data:
+    name: wordpress-data
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/meskelin/data/wordpress-data
       o: bind
 
 networks:
