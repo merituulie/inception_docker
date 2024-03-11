@@ -1,6 +1,6 @@
 FROM alpine:3.18
 
-COPY	./conf/nginx.conf /etc/nginx/http.d/defalt.conf
+COPY	./conf/nginx.conf /etc/nginx/http.d/nginx.conf
 
 RUN	apk update  && \
 	apk add openssl nginx && \
