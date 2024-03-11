@@ -1,5 +1,7 @@
 FROM alpine:3.18
 
+COPY	./conf/nginx.conf /etc/nginx/http.d/nginx.conf
+
 RUN	apk update  && \
 	apk add openssl nginx && \
 	mkdir -p /run/nginx /etc/nginx/ssl && \
@@ -11,11 +13,6 @@ RUN	apk update  && \
 	adduser -S -H -g "" www -G www && \
 	sed -i 's/user nginx/user www www/' /etc/nginx/nginx.conf && \
 	sed -i 's/ssl_protocols TLSv1.1 TLSv1.2 TLSv1.2;/ssl_protocols TLSv1.2 TLSv1.3;/' /etc/nginx/nginx.conf
-
-COPY	./conf/nginx.conf /etc/nginx/nginx.conf
-COPY	./conf/nginx.conf /etc/nginx/sites-available/default
-COPY	./conf/default.conf /etc/nginx/http.d/default.conf
-COPY	./conf/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 443
 
