@@ -1,4 +1,4 @@
-# Inception ![docker](https://skillicons.dev/icons?i=docker) ![linux](https://skillicons.dev/icons?i=linux)
+# ![docker](https://skillicons.dev/icons?i=docker) ![linux](https://skillicons.dev/icons?i=linux) Inception
 
 This project implements a System Administration exercise using Docker. It virtualizes several microservices that make up a ready-to-use application: MariaDB, Wordpress and NGINX setup for any machine using Docker and docker-compose, where each image is built from scratch on top of a small linux distribution.
 
