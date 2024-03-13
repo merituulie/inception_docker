@@ -20,7 +20,7 @@ This project implements a System Administration exercise using Docker. It virtua
 
 ## 🏗️ Setting Up
 
-### [](https://skillicons.dev/icons?i=docker) [](https://skillicons.dev/icons?i=make) Prerequisites
+### ![docker](https://skillicons.dev/icons?i=docker) ![linux](https://skillicons.dev/icons?i=linux) Prerequisites
 
 - Install [Docker](https://docs.docker.com/engine/install/)
 - Install [Docker Compose](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
