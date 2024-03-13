@@ -18,9 +18,9 @@ This project implements a System Administration exercise using Docker. It virtua
   - Docker network to connect containers.
 - Containers are configured to restart on crash.
 
-## Setting Up
+## 🏗️ Setting Up
 
-### Prerequisites
+### [](https://skillicons.dev/icons?i=docker) [](https://skillicons.dev/icons?i=make) Prerequisites
 
 - Install [Docker](https://docs.docker.com/engine/install/)
 - Install [Docker Compose](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
