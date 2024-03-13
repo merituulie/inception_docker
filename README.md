@@ -23,7 +23,7 @@ This project implements a System Administration exercise using Docker. It virtua
 ### Prerequisites
 
 - Install [Docker](https://docs.docker.com/engine/install/)
-- Install [Docker Compose]((https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
+- Install [Docker Compose](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
 - Install [Make](https://www.gnu.org/software/make)
 
 Additionally, make sure you have a `.env` file with the necessary environment variables available in the root of the repository.
