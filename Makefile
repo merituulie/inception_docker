@@ -29,7 +29,6 @@ clean:
 	sudo docker compose -f srcs/docker-compose.yml down --rmi all -v
 
 fclean: clean
-	sudo sed -i '/meskelin\.42\.fr/d' /etc/hosts
 	@if [ -d $(FILES_PATH) ]; then \
 		sudo rm -rf $(FILES_PATH); \
 	fi;
