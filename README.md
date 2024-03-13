@@ -1,6 +1,6 @@
 # Inception
 
-This project implements a System Administration exercise using Docker. It virtualizes several microservices: MariaDB, Wordpress and NGINX setup for a Linux machine using Docker and docker-compose, build from scratch.
+This project implements a System Administration exercise using Docker. It virtualizes several microservices that make up a ready-to-use application: MariaDB, Wordpress and NGINX setup for any machine using Docker and docker-compose, build from scratch.
 
 ---
 
