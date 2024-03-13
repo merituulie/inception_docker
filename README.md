@@ -1,4 +1,4 @@
-# Inception
+# Inception ![docker](https://skillicons.dev/icons?i=docker) ![linux](https://skillicons.dev/icons?i=linux)
 
 This project implements a System Administration exercise using Docker. It virtualizes several microservices that make up a ready-to-use application: MariaDB, Wordpress and NGINX setup for any machine using Docker and docker-compose, where each image is built from scratch on top of a small linux distribution.
 
@@ -20,7 +20,7 @@ This project implements a System Administration exercise using Docker. It virtua
 
 ## 🏗️ Setting Up
 
-### ![docker](https://skillicons.dev/icons?i=docker) ![linux](https://skillicons.dev/icons?i=linux) Prerequisites
+### Prerequisites
 
 - Install [Docker](https://docs.docker.com/engine/install/)
 - Install [Docker Compose](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
